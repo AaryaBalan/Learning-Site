@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SimpleCourse = ({ i, course }) => {
+const SimpleCourse = ({ course }) => {
     return (
-        <div key={i} className="flex flex-col sm:flex-row gap-4 border-b border-[#80808073] pb-4">
+        <div className="flex flex-col sm:flex-row gap-4 border-b border-[#80808073] pb-4">
             <img
                 src={course.image}
                 alt={course.title}

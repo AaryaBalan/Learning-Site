@@ -1,9 +1,8 @@
 import React from 'react'
 
-const TopCourse = ({ i, course }) => {
+const TopCourse = ({ course }) => {
     return (
         <div
-            key={i}
             className="bg-[#8a2cdc3b] border-2 border-[#892cdc] rounded-lg shadow-md p-2  md:w-[300px] flex flex-col gap-y-2"
         >
             <img src={course.image} alt={course.title} className=" md:w-[300px] rounded" />

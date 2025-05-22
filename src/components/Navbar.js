@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X } from 'lucide-react'; // or any icon library you prefer
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,8 +36,8 @@ const Navbar = () => {
 
                 {/* Horizontal Nav for large screens */}
                 <nav className="hidden sm:flex space-x-4">
-                    <a href="#" className="text-black bg-white px-4 py-2 rounded-xl font-semibold">Home</a>
-                    <a href="#" className="text-black bg-white px-4 py-2 rounded-xl font-semibold">Courses</a>
+                    <Link to={'/'} className="text-black bg-white px-4 py-2 rounded-xl ">Home</Link>
+                    <Link to={'/courses'} className="text-black bg-white px-4 py-2 rounded-xl ">Courses</Link>
                     <button className="bg-orange-500 text-white px-6 py-2 rounded-xl">Log in</button>
                 </nav>
             </header>
@@ -53,8 +54,8 @@ const Navbar = () => {
                     </button>
                 </div>
                 <nav className="flex flex-col p-4 space-y-4">
-                    <a href="#" className="text-black font-semibold">Home</a>
-                    <a href="#" className="text-black font-semibold">Courses</a>
+                    <Link to={'/'} className="text-black bg-white px-4 py-2 rounded-xl ">Home</Link>
+                    <Link to={'/courses'} className="text-black bg-white px-4 py-2 rounded-xl ">Courses</Link>
                     <button className="bg-orange-500 text-white px-4 py-2 rounded-xl w-full">Log in</button>
                 </nav>
             </div>
