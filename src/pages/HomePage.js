@@ -13,7 +13,6 @@ const HomePage = () => {
             <HeroSection />
             {/* Explore Skills Section */}
             <ExploreSkills />
-
             {/* Newsletter */}
             <section className="bg-gray-100 py-8 px-6 text-center">
                 <h3 className="text-lg font-semibold mb-2">Join Our newsletter to keep up to date with us!</h3>

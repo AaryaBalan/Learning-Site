@@ -6,7 +6,7 @@ const HeroSection = () => {
         // Hero Section
         <div className="bg-[#892CDC] text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
+
                 <div className="flex flex-col-reverse md:flex-row items-center py-16">
                     <div className="md:w-1/2 text-center md:text-left">
                         <h2 className="text-4xl font-bold mb-4">
@@ -33,12 +33,12 @@ const HeroSection = () => {
                         <p className="mt-6 text-sm text-white/90">
                             Join 150,000+ solo business owners who use Podia to run their website, online store, and email marketing
                         </p>
-                        <button className="mt-4 bg-white text-purple-800 font-semibold px-6 py-2 rounded-full">Get Started</button>
+                        <button className="mt-4 bg-white text-[#892cdc] font-semibold px-6 py-2 rounded-full">Get Started</button>
                     </div>
 
                     <div className="md:w-1/2 flex justify-center relative">
                         <img
-                            src="https://i.ibb.co/tqkQ6KP/student.png"
+                            src="https://i.pinimg.com/736x/86/e0/86/86e086efb17f46db00b20a433aca4a55.jpg"
                             alt="Student"
                             className="w-72 rounded-lg"
                         />
@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <div className="grid md:grid-cols-3 gap-6 py-10">
                     <div className="flex flex-col bg-white text-black p-4 rounded-xl shadow-md">
                         <img
-                            src="https://i.ibb.co/Zdxn7Gj/python-card.png"
+                            src="https://i.ytimg.com/vi/i_LwzRVP7bg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBjAF6NN3UZ2KoYVXmI2y_6AsDHaw"
                             alt="Python Course"
                             className="rounded-md mb-4 h-52"
                         />
@@ -61,7 +61,7 @@ const HeroSection = () => {
 
                     <div className="flex flex-col bg-white text-black p-4 rounded-xl shadow-md">
                         <img
-                            src="https://i.ibb.co/tZ1rKw0/java-card.png"
+                            src="https://i.ytimg.com/vi/i_LwzRVP7bg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBjAF6NN3UZ2KoYVXmI2y_6AsDHaw"
                             alt="Java Course"
                             className="rounded-md mb-4 h-52"
                         />
@@ -71,7 +71,7 @@ const HeroSection = () => {
 
                     <div className="flex flex-col bg-white text-black p-4 rounded-xl shadow-md">
                         <img
-                            src="https://i.ibb.co/zr2y7FC/dsa-card.png"
+                            src="https://i.ytimg.com/vi/i_LwzRVP7bg/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBjAF6NN3UZ2KoYVXmI2y_6AsDHaw"
                             alt="DSA Course"
                             className="rounded-md mb-4 h-52"
                         />

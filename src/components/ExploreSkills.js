@@ -13,7 +13,7 @@ const ExploreSkills = () => {
                     {["Full-Stack Engineer", "Front-End Engineer", "Back-End Engineer", "Learn PHP", "Learn HTML", "Learn CSS", "Learn JavaScript", "Learn React"].map((title, index) => (
                         <div
                             key={index}
-                            className="bg-white shadow-md p-4 rounded-md hover:shadow-lg transition-all"
+                            className="bg-[#8a2cdc3b] border-2 border-[#892cdc] shadow-md p-4 rounded-md hover:shadow-lg transition-all"
                         >
                             <h3 className="font-semibold text-orange-600 mb-2">{title}</h3>
                             <p className="text-sm text-gray-700 mb-3">Description about {title.toLowerCase()}.</p>
