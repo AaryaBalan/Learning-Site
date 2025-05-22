@@ -2,6 +2,7 @@ import React from "react";
 import TopCourse from "../components/TopCourse";
 import FeaturedCourse from "../components/FeaturedCourse";
 import SimpleCourse from "../components/SimpleCourse";
+import Navbar from "../components/Navbar";
 
 const courses = [
     {
@@ -40,28 +41,31 @@ const courses = [
 
 const ExploreCoursesPage = () => {
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold text-[#892cdc]">Web Development Courses</h1>
-            <p className="mt-2 text-gray-600">Courses To Get You Started</p>
-            <p className="text-sm text-gray-500">Explore Courses From Experienced, Real-World Experts.</p>
+        <div>
+            <Navbar />
+            <div className="max-w-7xl mx-auto px-4 py-8">
+                <h1 className="text-3xl font-bold text-[#892cdc]">Web Development Courses</h1>
+                <p className="mt-2 text-gray-600">Courses To Get You Started</p>
+                <p className="text-sm text-gray-500">Explore Courses From Experienced, Real-World Experts.</p>
 
-            {/* top rated courses */}
-            <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
-                {courses.map((course, i) => (
-                    <TopCourse key={i} course={course} />
-                ))}
-            </div>
+                {/* top rated courses */}
+                <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+                    {courses.map((course, i) => (
+                        <TopCourse key={i} course={course} />
+                    ))}
+                </div>
 
 
-            {/* Featured Course */}
-            <FeaturedCourse />
+                {/* Featured Course */}
+                <FeaturedCourse />
 
-            {/* All Courses */}
-            <h2 className="text-xl font-bold mt-10 mb-4">All Web Development courses</h2>
-            <div className="space-y-6">
-                {[...courses, ...courses].map((course, i) => (
-                    <SimpleCourse key={i} course={course}/>
-                ))}
+                {/* All Courses */}
+                <h2 className="text-xl font-bold mt-10 mb-4">All Web Development courses</h2>
+                <div className="space-y-6">
+                    {[...courses, ...courses].map((course, i) => (
+                        <SimpleCourse key={i} course={course} />
+                    ))}
+                </div>
             </div>
         </div>
     );
