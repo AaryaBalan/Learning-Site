@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TopCourse from "../components/TopCourse";
 import FeaturedCourse from "../components/FeaturedCourse";
 import SimpleCourse from "../components/SimpleCourse";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 
 const courses = [
     {
@@ -40,6 +41,34 @@ const courses = [
 ];
 
 const ExploreCoursesPage = () => {
+
+    const [basicCourses, setBasicCourses] = useState([]);
+    const [topCourse, setTopCourse] = useState([]);
+    const [featuredCourse, setFeaturedCourse] = useState([]);
+    const [allCourses, setAllCourses] = useState([]);
+
+    useEffect(() => {
+        const getCourses = async () => {
+            try {
+                const response = await axios.get('http://localhost:7000/course/all');
+                //set all courses
+                setAllCourses(response.data);
+                // set basic course
+                setBasicCourses(response.data.filter(course => course.type === 'basic'));
+                // set top course
+                setTopCourse(response.data.filter(course => course.type === 'top'));
+                // set featured course
+                setFeaturedCourse(response.data.filter(course => course.type === 'featured'));
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+            }
+        }
+        getCourses()
+
+    }, [])
+    console.log('basicCourses', basicCourses)
+    console.log('topCourse', topCourse)
+    console.log('featuredCourse', featuredCourse)
     return (
         <div>
             <Navbar />
@@ -50,7 +79,7 @@ const ExploreCoursesPage = () => {
 
                 {/* top rated courses */}
                 <div className="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
-                    {courses.map((course, i) => (
+                    {allCourses.map((course, i) => (
                         <TopCourse key={i} course={course} />
                     ))}
                 </div>
@@ -62,7 +91,7 @@ const ExploreCoursesPage = () => {
                 {/* All Courses */}
                 <h2 className="text-xl font-bold mt-10 mb-4">All Web Development courses</h2>
                 <div className="space-y-6">
-                    {[...courses, ...courses].map((course, i) => (
+                    {allCourses.map((course, i) => (
                         <SimpleCourse key={i} course={course} />
                     ))}
                 </div>

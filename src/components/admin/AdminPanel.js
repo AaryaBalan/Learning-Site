@@ -37,7 +37,6 @@ const AdminPanel = () => {
     const handleCourseDetails = (e) => {
         const { name, value, files } = e.target;
         const fieldValue = files ? files[0] : value;
-
         setCourseDetails(prevDetails => ({
             ...prevDetails,
             [name]: fieldValue,
@@ -45,26 +44,21 @@ const AdminPanel = () => {
         }));
     };
 
-    const handleFiles = async (e) => {
-        const file = e.target.files[0]
-        const fileReader = new FileReader()
-        fileReader.readAsDataURL(file)
-        fileReader.onload = () => {
-            setCourseDetails(prevDetails => ({
-                ...prevDetails,
-                [e.target.name]: fileReader.result
-            }))
-        }
-        fileReader.onerror = (error) => {
-            console.log(error)
-        }
-    }
 
     async function postCourse(e) {
         e.preventDefault()
+        const formData = new FormData();
+        formData.append('title', courseDetails.title);
+        formData.append('author', courseDetails.author);
+        formData.append('description', courseDetails.description);
+        formData.append('category', courseDetails.category);
+        formData.append('thumbnail', courseDetails.thumbnail); // File object
+        formData.append('video', courseDetails.video); // File object
+        formData.append('timeline', JSON.stringify(courseDetails.timeline)); // Convert timeline array to string
+        console.log('formData', formData)
         try {
             console.log('course', courseDetails)
-            const course = await axios.post('http://localhost:7000/course/addCourse', courseDetails)
+            const course = await axios.post('http://localhost:7000/course/addCourse', formData)
         } catch (error) {
             console.log(error)
         }
@@ -80,18 +74,26 @@ const AdminPanel = () => {
 
                     <div>
                         <label className="block mb-2 font-semibold text-gray-700">Upload Thumbnail</label>
-                        <input onChange={handleFiles} name="thumbnail" type="file" accept="image/*" className="w-full p-3 border border-gray-300 rounded-xl outline-[#892cdc] shadow bg-white" />
+                        <input onChange={handleCourseDetails} name="thumbnail" type="file" accept="image/*" className="w-full p-3 border border-gray-300 rounded-xl outline-[#892cdc] shadow bg-white" />
                     </div>
 
                     <textarea onChange={handleCourseDetails} name="description" placeholder="Course Description" className="w-full p-4 border border-gray-300 rounded-xl h-28 outline-[#892cdc] shadow"></textarea>
 
                     <div>
                         <label className="block mb-2 font-semibold text-gray-700">Upload Course Video</label>
-                        <input onChange={handleFiles} name="video" type="file" accept="video/*" className="w-full p-3 border border-gray-300 rounded-xl outline-[#892cdc] shadow bg-white" />
+                        <input onChange={handleCourseDetails} name="video" type="file" accept="video/*" className="w-full p-3 border border-gray-300 rounded-xl outline-[#892cdc] shadow bg-white" />
                     </div>
 
-                    <input onChange={handleCourseDetails} name="category" type="text" placeholder="Category" className="w-full p-4 border border-gray-300 rounded-xl outline-[#892cdc] shadow" />
+                    <div className="flex gap-x-4 items- justify-between">
+                        <input onChange={handleCourseDetails} name="category" type="text" placeholder="Category" className="w-full p-4 border border-gray-300 rounded-xl outline-[#892cdc] shadow" />
 
+                        <select name="courseType" onChange={handleCourseDetails} className="w-full p-4 border border-gray-300 rounded-xl outline-[#892cdc] shadow">
+                            <option value="top">Top</option>
+                            <option value="featured">Featured</option>
+                            <option value="basic">Basic</option>
+                        </select>
+                    </div>
+                    <input onChange={handleCourseDetails} name="price" type="number" placeholder="Price in rupees" className="w-full p-4 border border-gray-300 rounded-xl outline-[#892cdc] shadow" required/>
                     <div>
                         <h3 className="text-2xl font-semibold text-[#ff6900] mb-4">Course Timeline</h3>
                         {timeline.map((item, index) => (

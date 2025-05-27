@@ -2,11 +2,11 @@ import React from 'react'
 
 const SimpleCourse = ({ course }) => {
     return (
-        <div className="flex flex-col sm:flex-row gap-4 border-b border-[#80808073] pb-4">
+        <div className="flex flex-col sm:flex-row gap-4 border-b border-[#80808073] pb-4 ">
             <img
-                src={course.image}
+                src={`http://localhost:7000/${course.thumbnail}`}
                 alt={course.title}
-                className="w-full sm:w-60 rounded shadow"
+                className="w-[350px] object-cover h-52 rounded"
             />
             <div>
                 <h3 className="text-lg font-bold text-[#892cdc]">{course.title}</h3>
