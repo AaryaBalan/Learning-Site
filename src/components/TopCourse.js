@@ -11,6 +11,7 @@ const TopCourse = ({ course }) => {
             <div className="flex items-center text-sm mt-1">
                 <span className="text-[red] font-semibold">⭐ {course.rating}</span>
             </div>
+            <p className="text-sm mt-1 text-gray-500 max-w-[500px]">{course.description && course.description.slice(0, 200)}</p>
             <div className="text-sm font-bold mt-1">
                 <span>$ {course.price}</span>
                 <span className="line-through text-gray-500 ml-2">{course.original}</span>
